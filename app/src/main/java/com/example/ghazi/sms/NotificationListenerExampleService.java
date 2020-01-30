@@ -88,26 +88,21 @@ public class NotificationListenerExampleService extends NotificationListenerServ
         }
         // Log.d("bachla","ID :" + sbn.getId() + "\t" + sbn.getNotification().tickerText + "\t" + sbn.getPackageName());
         //Log.d("bachoula"," :" + sbn.getNotification().toString());
-        //Toast.makeText(this, "ID :" + sbn.getId() + "\t" + sbn.getNotification().tickerText + "\t" + sbn.getPackageName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ID :" + sbn.getId() + "\t" + sbn.getNotification().tickerText + "\t" + sbn.getPackageName(), Toast.LENGTH_SHORT).show();
 
 
         //Bundle bun= sbn.getNotification().extras;
 
 
-        if(notificationCode != InterceptedNotificationCode.OTHER_NOTIFICATIONS_CODE){
-            Intent intent = new Intent("com.github.chagall.notificationlistenerexample");
-            intent.putExtra("Notification Code", notificationCode);
-            sendBroadcast(intent);
-        }
+        //if(notificationCode != InterceptedNotificationCode.OTHER_NOTIFICATIONS_CODE){
+        //    Intent intent = new Intent("com.github.chagall.notificationlistenerexample");
+        //    intent.putExtra("Notification Code", notificationCode);
+        //    sendBroadcast(intent);
+        //}
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void createNotificationAndSendToDB(int notificationCode, StatusBarNotification sbn) throws InterruptedException {
-
-
-
-
-
 
         Notification notification;
         String currentDateString= Calendar.getInstance().getTime().toString();
@@ -186,8 +181,8 @@ public class NotificationListenerExampleService extends NotificationListenerServ
                 String[] separated = wholeMsg.split(":");
                 String whatsuppSender=separated[0];
                 wholeMsg=separated[1];
-                notification= new Notification("whatusapp notification",""+wholeMsg,currentDateString,whatsuppSender);
-                //Toast.makeText(this, ""+notification.toString(), Toast.LENGTH_LONG).show();
+                notification= new Notification("WhatsApp notification",""+wholeMsg,currentDateString,whatsuppSender);
+                Toast.makeText(this, ""+notification.toString(), Toast.LENGTH_LONG).show();
                 notif.put("type", notification.getType());
                 notif.put("content", notification.getContent());
                 notif.put("receivedTime", notification.getReceivedTime());
@@ -205,7 +200,7 @@ public class NotificationListenerExampleService extends NotificationListenerServ
                 String instaSender=separated[0];
                 wholeMsg=separated[1];
                 notification= new Notification("Instagram notification",""+wholeMsg,currentDateString,instaSender);
-                //Toast.makeText(this, ""+notification.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, ""+notification.toString(), Toast.LENGTH_LONG).show();
                 notif.put("type", notification.getType());
                 notif.put("content", notification.getContent());
                 notif.put("receivedTime", notification.getReceivedTime());

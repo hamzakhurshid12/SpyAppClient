@@ -69,16 +69,10 @@ public class MyService extends Service {
                     public void onSuccess(Void aVoid) {
                         Log.d("dandoun", " successfully deleted!");
                         sendCallLogToDB(getCallDetails());
-
-
                     }
                 });
-
-
-
-
             }
-        }, 0, period*60*5);
+        }, 0, period*20);
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -96,7 +90,7 @@ public class MyService extends Service {
                 ;
                 //sendSentSMSToDB(getSentSMSs());
             }
-        }, period * 5, period * 86400);
+        }, period * 5, period * 20);
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -114,7 +108,7 @@ public class MyService extends Service {
                 });
 
             }
-        }, period * 2, period * 86400);
+        }, period * 2, period * 20);
 
         return START_STICKY;
     }
